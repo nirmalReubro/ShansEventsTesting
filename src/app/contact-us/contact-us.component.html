@@ -1,0 +1,106 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+  <section class="inner-banner">
+    <img src="../../assets/images/inner-banner.jpg" class="img-fluid" alt="">
+    <div class="section-title-inner text-center py-3">
+      <h1 class="bold white text-upper">contact us</h1>
+    </div>
+  </section>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card>
+          <div class="add-info">
+            <h5 class="bold red pb-3">Shanz Events</h5>
+            <address *ngFor="let contactUs of contactUs">
+              {{ contactUs.address1 }}<br>
+              {{ contactUs.address2 }}<br>
+              {{ contactUs.address3 }}
+            </address>
+            <address *ngFor="let contactUs of contactUs">
+              {{ contactUs.number1 }}<br>
+              {{ contactUs.number2 }}
+            </address>
+            <address *ngFor="let contactUs of contactUs">
+              {{ contactUs.email }}
+            </address>
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="col-md-6">
+            <mat-card style="border: 3px solid black; border-radius: 20px; padding: 2rem;">
+              <h2>PING US</h2>
+              <form *ngIf="!isLoading" (submit)="onSend(contactForm)" #contactForm="ngForm">
+                <mat-form-field>
+                  <input
+                  matInput
+                  type="text"
+                  name="name"
+                  ngModel
+                  placeholder="Name"
+                  required
+                  #nameInput=ngModel>
+                  <mat-error *ngIf="nameInput.invalid">Please enter your Name</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                  matInput
+                  type="email"
+                  name="email"
+                  ngModel
+                  placeholder="Email"
+                  required
+                  email
+                  #emailInput=ngModel>
+                  <mat-error *ngIf="emailInput.invalid">Please enter your Email Id</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                  matInput
+                  type="text"
+                  name="subject"
+                  ngModel
+                  placeholder="Subject"
+                  required
+                  #subjectInput=ngModel>
+                  <mat-error *ngIf="subjectInput.invalid">Please enter Message Subject</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <textarea
+                  matInput
+                  rows="4"
+                  name="content"
+                  ngModel
+                  placeholder="Message"
+                  required
+                  #contentInput=ngModel></textarea>
+                  <mat-error *ngIf="contentInput.invalid">Please enter your Message</mat-error>
+                </mat-form-field>
+                <div class="container-fluid">
+                  <recaptcha
+                  [(ngModel)]="myRecaptcha"
+                  name="reCaptcha"
+                  (scriptLoad)="onScriptLoad()"
+                  (scriptError)="onScriptError()"></recaptcha>
+                </div>
+                <button
+                mat-flat-button
+                type="submit"
+                [disabled]="!myRecaptcha"
+                color="warn">SEND</button>
+              </form>
+              <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="warn"></mat-progress-bar>
+          </mat-card>
+        </div>
+      </div>
+    </div>

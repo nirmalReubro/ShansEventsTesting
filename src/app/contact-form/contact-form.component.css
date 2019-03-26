@@ -1,0 +1,17 @@
+mat-form-field, 
+textarea {
+    margin-top: 10px;
+    width: 100%;
+}
+
+button {
+    margin-top: 2rem; 
+    padding: 10px;
+    width: 100%;
+}
+
+recaptcha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

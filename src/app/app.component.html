@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<!--Contact Button and Modal-->
+<a (click)="openContact()" class="float">
+    <span class="link">
+        <i class="fa fa-comment my-float"><p>Ping Us</p></i>
+    </span>
+</a>
+<ngx-smart-modal #contactModal identifier="contactModal">
+    <app-contact-form></app-contact-form>
+    <button 
+    class="modalButton" 
+    (click)="closeContact()"
+    mat-flat-button 
+    type="submit">Close</button>
+</ngx-smart-modal>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+<!-- <app-payment></app-payment> -->

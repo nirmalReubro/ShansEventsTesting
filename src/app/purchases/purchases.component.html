@@ -1,0 +1,187 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<section class="inner-banner">
+  <img src="../../assets/images/inner-banner.jpg" class="img-fluid" alt="">
+  <div class="section-title-inner text-center py-3">
+    <h1 class="bold white text-upper">MAKE A PURCHASE</h1>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row justify-content-center">        
+    <div class="col-md-9">
+        <mat-card style="border: 3px solid black; border-radius: 20px; padding: 2rem;">
+          <h2>PURCHASE DETAILS</h2>
+          <p><i>You can purchase upto three items in one order</i></p><p class="mat-body-1" style="color: red;"><i>* required field</i></p>
+          <p *ngIf="formInvalid" class="mat-body-1" style="color: black; border: 2px solid red; padding: 5px; text-align: center">
+            <i class="fa fa-warning" style="font-size: 20px"></i>
+            Some required fields are not filled or are invalid
+          </p>
+          <form (submit)="onPurchase(purchaseForm)" #purchaseForm="ngForm">
+            <div>
+              <mat-form-field class="item-name">
+                <mat-select 
+                [disabled]="submitted"
+                placeholder="Item Name"
+                name="item1" 
+                required 
+                ngModel 
+                #itemName1="ngModel">
+                  <mat-option *ngFor="let item of items" [value]="item.name">
+                    {{item.name}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="itemName1.invalid">Atleast 1 is Required</mat-error>
+              </mat-form-field>
+              <mat-form-field class="qty">
+                <input 
+                [disabled]="submitted"
+                matInput 
+                name="qty1"
+                type="number" 
+                placeholder="Qty"
+                required 
+                min="1"
+                ngModel 
+                #itemQty1="ngModel">
+                <mat-error *ngIf="itemQty1.invalid">Please enter a valid number</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="item-name">
+                <mat-select 
+                [disabled]="submitted"
+                placeholder="Item Name"
+                name="item2" 
+                ngModel 
+                #itemName2="ngModel">
+                  <mat-option *ngFor="let item of items" [value]="item.name">
+                    {{ item.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="qty">
+                <input 
+                [disabled]="submitted"
+                matInput 
+                name="qty2"
+                type="number" 
+                placeholder="Qty" 
+                min="1"
+                ngModel 
+                #itemQty2="ngModel">
+                <mat-error *ngIf="itemQty2.invalid">Please enter a valid number</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="item-name">
+                <mat-select 
+                [disabled]="submitted"
+                placeholder="Item Name"
+                name="item3"  
+                ngModel 
+                #itemName3="ngModel">
+                  <mat-option *ngFor="let item of items" [value]="item.name">
+                    {{item.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="qty">
+                <input 
+                matInput 
+                [disabled]="submitted"
+                name="qty3"
+                type="number" 
+                placeholder="Qty"
+                min="1"
+                ngModel 
+                #itemQty3="ngModel">
+                <mat-error *ngIf="itemQty3.invalid">Please enter a valid number</mat-error>
+              </mat-form-field>
+            </div>
+            <mat-form-field>
+              <input 
+              [disabled]="submitted"
+              id="dateField"
+              matInput 
+              name="date"
+              type="date" 
+              placeholder="Delivery Date"
+              required 
+              ngModel 
+              #date="ngModel">
+              <mat-error *ngIf="date.invalid">Delivery Date is required</mat-error>
+            </mat-form-field>
+            <div id="map"></div>
+            <a [disabled]="submitted" mat-button name="location" (click)="setLocation()">Submit Location</a>
+            <mat-error *ngIf="!isLocationSet">Location is required</mat-error>
+            <!-- </mat-form-field> -->
+            <mat-form-field>
+              <input 
+              matInput 
+              [disabled]="submitted"
+              name="contact"
+              type="text"
+              placeholder="Contact Number" 
+              required 
+              pattern="^[0-9]*$" 
+              size="10" 
+              ngModel 
+              #contact="ngModel" />
+              <mat-error *ngIf="contact.invalid">Contact Number is required</mat-error>
+            </mat-form-field>
+            <button 
+              mat-flat-button 
+              type="submit" 
+              color="warn"
+              [disabled]="!isDisabled">
+              SUBMIT
+            </button>
+            <button 
+              mat-flat-button 
+              (click)="getCost()" 
+              color="warn"
+              [disabled]="isDisabled">
+              GET COST
+            </button>
+          </form>
+          <ngx-smart-modal #costModal identifier="costModal">
+            <h2 style="text-align: center;">Purchase Summary</h2>
+            <table>
+              <tr>
+                <td>{{ pickedItem1 }}</td>
+                <td style="text-align: right;">{{ pickedQty1 }}</td>
+              </tr>
+              <tr *ngIf="isItem2">
+                <td>{{ pickedItem2 }}</td>
+                <td style="text-align: right;">{{ pickedQty2 }}</td>
+              </tr>
+              <tr *ngIf="isItem3">
+                <td>{{ pickedItem3 }}</td>
+                <td style="text-align: right;">{{ pickedQty3 }}</td>
+              </tr>
+              <tr>
+                <td>Delivery Date</td>
+                <td style="text-align: right;">{{ deliveryDate }}</td>
+              </tr>
+              <tr>
+                <td><h5>Total Cost</h5></td>
+                <td style="text-align: right;"><h5>{{ totalCost }}</h5></td>
+              </tr>
+            </table>
+          
+            <button (click)="onConfirm()">Confirm and Pay</button>
+          </ngx-smart-modal>
+          <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="warn"></mat-progress-bar>
+      </mat-card>
+    </div> 
+  </div>
+</div>

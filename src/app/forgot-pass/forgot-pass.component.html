@@ -1,0 +1,41 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<section class="inner-banner">
+  <img src="../../assets/images/inner-banner.jpg" class="img-fluid" alt="">
+  <div class="section-title-inner text-center py-3">
+    <h1 class="bold white text-upper">FORGOT PASSOWRD</h1>
+  </div>
+</section>
+  
+<div class="container py-5">
+  <div class="row justify-content-center">    
+    <div class="col-md-6">
+      <mat-card style="border: 3px solid black; border-radius: 20px; padding: 2rem;">
+        <p class="text-center">Enter your registered email address below 
+          and we will send you instructions on resetting your password.</p>
+        <form>
+          <mat-form-field>
+            <input 
+              matInput 
+              type="email"
+              name="email" 
+              ngModel
+              placeholder="Email"
+              required
+              #email=ngModel>
+            <mat-error *ngIf="email.invalid">Please enter a valid Email Id</mat-error>
+          </mat-form-field>
+          <button mat-flat-button type="submit" color="warn">SEND EMAIL</button>
+        </form>
+      </mat-card>
+    </div> 
+  </div>
+</div>

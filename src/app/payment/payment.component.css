@@ -1,0 +1,32 @@
+.brainTree {
+    margin: 6rem 4rem 4rem 4rem;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: green;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-size: 20px;
+}
+
+.failure {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: red;
+}

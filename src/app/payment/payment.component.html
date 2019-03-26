@@ -1,0 +1,55 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+  <script src="https://js.braintreegateway.com/web/dropin/1.14.1/js/dropin.min.js"></script>
+</head>
+
+
+<div class="container py-5">
+  <div class="col-md-12" style="margin: auto;">
+    <ngx-braintree 
+    *ngIf="!brainTreeHide"
+    class="brainTree"
+    [clientTokenURL]="clientTokenURL" 
+    [createPurchaseURL]="createPurchaseURL" 
+    [chargeAmount]="chargeAmount"
+    (paymentStatus)="onPaymentStatus($event)"
+    [buttonText]="'Pay'"
+    [showCardholderName]="true"
+    [enablePaypalCheckout] = "true"
+    [currency]="'USD'">
+    </ngx-braintree> 
+    <mat-card *ngIf="successFlag" class="success">
+      <ul>
+        <li><i class="fa fa-check fa-4x" aria-hidden="true"></i></li>
+        <li></li>
+        <li><h2>Payment Successful</h2></li>
+        <li></li>
+        <!-- <li><button 
+          style="margin-top: 2rem;" 
+          mat-flat-button 
+          color="primary"
+          (click)="backHome()">RETURN TO HOMEPAGE</button></li> -->
+      </ul>
+    </mat-card>
+    <mat-card *ngIf="failureFlag" class="failure">
+      <ul>
+        <li><i class="fa fa-times fa-4x" aria-hidden="true"></i></li>
+        <li></li>
+        <li><h2>Oops! Your Payment Failed</h2></li>
+        <li><h2>Please Try Again or Ping Us</h2></li>
+        <li></li>
+        <li><button 
+          style="margin-top: 2rem;" 
+          mat-flat-button 
+          color="primary"
+          (click)="pageReload()">TRY AGAIN</button></li>
+      </ul>
+    </mat-card>
+  </div>
+</div>

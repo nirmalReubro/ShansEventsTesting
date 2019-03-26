@@ -1,0 +1,97 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<section class="inner-banner">
+    <img src="../../assets/images/inner-banner.jpg" class="img-fluid" alt="">
+    <div class="section-title-inner text-center py-3">
+      <h1 class="bold white text-upper">our services</h1>
+    </div>
+  </section>
+
+  <div class="container py-5">
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <div class="aboutus text-center pb-5">
+          <p class="head-text">
+            Our events are completely customized, reflecting the brand personality of 
+            each client. Whether we act for a family, a product, a company or a cause, 
+            our work embraces experiences that integrate innovative design with the finest 
+            in wine and cocktails, dining, music, entertainment and—most important of all—that 
+            intangible element of surprise.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <div class="event-block py-3">
+      <div *ngFor="let ourService of ourServices" class="row no-gutters event-blok-box">
+        <div class="col-md-12">
+          <div class="event-info py-4">
+            <h3 class="red text-upper bold pb-3">{{ ourService.title }}</h3>
+            <p>
+              {{ ourService.content }}
+            </p>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
+          <div class="event-ceremony-right">
+            <div class="rounded">
+            <img src="../../assets/images/ceremony-1.jpg" alt="" class="img-fluid">
+          </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  
+    <!-- <div class="event-block py3">
+      <div class="row no-gutters event-blok-box">
+        <div class="col-md-4">
+          <div class="event-ceremony-left">
+              <div class="rounded">
+            <img src="../../assets/images/award-ceremony.jpg" alt="" class="img-fluid">
+          </div>
+          </div>
+        </div>
+              <div class="col-md-8">
+          <div class="event-info py-4">
+            <h3 class="red text-upper bold pb-3">Corporate Entertainment</h3>
+            <p>
+              Every corporate event is aimed at strengthening business relationships and boosting 
+              employee morale. We at Shanz Events organizes flawless events that helps our client 
+              accomplishes their purpose. Shanz events has designed and organized corporate events 
+              like M.I.C.E Events, Dealer Meets, Product Launches and Road shows.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="event-block py-3">
+      <div class="row no-gutters event-blok-box">
+        <div class="col-md-8">
+          <div class="event-info py-4">
+            <h3 class="red text-upper bold pb-3">Conferences and Live Events</h3>
+            <p>
+              Successful conference management can be tedious and time-consuming, especially 
+              if you are a perfectionist and devote much deserved time and attention to detail. 
+              Our conference management arm is designed to help you get your message across to 
+              your audience in the most effective, professional way.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="event-ceremony-right">
+              <div class="rounded">
+            <img src="../../assets/images/live-events.jpg" alt="" class="img-fluid">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>

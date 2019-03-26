@@ -1,0 +1,5 @@
+.bg-theme {
+  background-image:url('../../assets/images/header_bg.png') !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

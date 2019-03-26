@@ -1,0 +1,141 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+  <section class="home-banner w-100">
+    <img src="../../assets/images/banner.jpg" class="img-fluid" alt="Responsive image">
+    <div class="caption">
+      <h1 class="white text-upper text-center bold">
+        WELCOME TO <br>
+        SHANZ EVENTS
+      </h1>
+      <!-- <div class="caption-btn mt-5">
+        <a href="#" class="text-upper">build your event today</a>
+      </div> -->
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row">
+      <div class="text-center py-5">
+        <div class="section-title text-center py-3">
+          <h2 class="text-upper red bold">We Are The Event Architects</h2>
+        </div>
+        <div class="content">
+          <p>
+              We do what it takes to make our clients' event planning processes
+              simple by offering reliable and impactful services. The experience our
+              clients get from working with us is always as important as the experience we
+              deliver to the events audiences.
+          </p>
+        </div>
+        <div class="h-line-gray pt-4">
+          <div class="logo-icon">
+            <img src="../../assets/images/icons/logoicon.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-dark">
+    <div class="row no-gutters events mt-2">
+      <div class="col-md-4">
+        <figure class="brand">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample38.jpg" alt="sample38"/>
+          <figcaption>
+            <h2>Hire our service</h2>
+            <button *ngIf="userIsAuthenticated" class="btn btn-sm" type="button" routerLink="/bookings">Make a Booking</button>
+            <button *ngIf="!userIsAuthenticated" class="btn btn-sm" type="button" routerLink="/login">Login to Proceed</button>
+            <a href="#"></a>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="brand">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample39.jpg" alt="sample39"/>
+          <figcaption>
+            <h2>Hire Our products</h2>
+            <button *ngIf="userIsAuthenticated" class="btn btn-sm" type="button" routerLink="/rentals">Make a Rental</button>
+            <button *ngIf="!userIsAuthenticated" class="btn btn-sm" type="button" routerLink="/login">Login to Proceed</button>
+            <a href="#"></a>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="brand">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample40.jpg" alt="sample40"/>
+          <figcaption>
+            <h2>Buy</h2>
+            <button *ngIf="userIsAuthenticated" class="btn btn-sm" type="button" routerLink="/purchases">Make a Purchase</button>
+            <button *ngIf="!userIsAuthenticated" class="btn btn-sm" type="button" routerLink="/login">Login to Proceed</button>
+            <a href="#"></a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+      <div class="row">
+        <div class="text-center py-5">
+          <div class="section-title text-center py-3">
+            <h2 class="text-upper red bold">What People Say</h2>
+          </div>
+          <div *ngFor="let testimonial of testimonials" class="content">
+            <blockquote class="blockquote">
+              <p class="mb-0">
+                {{ testimonial.content }}
+              </p>
+              <footer class="blockquote-footer">
+                {{ testimonial.by }}
+              </footer>
+            </blockquote>
+            <div class="h-line-gray pt-4">
+              <div class="logo-icon">
+                <img src="../../assets/images/icons/logoicon.png" alt="" />
+              </div>
+            </div>
+            <p> </p>
+            <p> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- <div class="container py-5">
+    <div class="col-md-12" style="margin: auto;">
+      <button type="button" class="btn btn-d-blue white bold text-upper btn-lg">
+        meet the team
+      </button>
+    </div>
+  </div> -->
+
+  <div class="row no-gutters recent-works-home pt-5">
+    <div class="col-lg-3 col-md-3">
+      <div class="recent-left py-5 text-center">
+        <h2 class="text-upper bold">recent works</h2>
+        <p>
+          Shanz Events belives in letting our work speak for us. It is the work that we do
+          that defines us
+        </p>
+        <p class="h-line"></p>
+        <button type="button" class="btn btn-red-brd text-upper half-width" routerLink="/gallery"><span>view more</span></button>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-9">
+      <div class="row no-gutters gallery-listing-home">
+        <div class="col-sm-4" *ngFor="let image of albums">
+          <div class="event-list">
+            <img [src]="image.imagePath" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

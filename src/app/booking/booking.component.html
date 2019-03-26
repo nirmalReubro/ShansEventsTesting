@@ -1,0 +1,158 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<section class="inner-banner">
+  <img src="../../assets/images/inner-banner.jpg" class="img-fluid" alt="">
+  <div class="section-title-inner text-center py-3">
+    <h1 class="bold white text-upper">BOOK AN EVENT</h1>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row justify-content-center">        
+    <div class="col-md-9">
+          <mat-card style="border: 3px solid black; border-radius: 20px; padding: 2rem;">
+            <h2>EVENT DETAILS</h2>
+            <p class="mat-body-1" style="color: red;"><i>* required field</i></p>
+            <p *ngIf="formInvalid" class="mat-body-1" style="color: black; border: 2px solid red; padding: 5px; text-align: center">
+              <i class="fa fa-warning" style="font-size: 20px"></i>
+              Some required fields are not filled or are invalid
+            </p>
+            <form (submit)="onBooking(bookingForm)" #bookingForm="ngForm">
+              <mat-form-field>
+                <input 
+                [disabled]="submitted"
+                matInput 
+                type="text" 
+                name="name" 
+                required 
+                minlength="4" 
+                placeholder="Event Name" 
+                ngModel 
+                #name="ngModel">
+                <mat-error *ngIf="name.invalid">Event Name is required</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input 
+                [disabled]="submitted"
+                id="dateField"
+                matInput 
+                name="date"
+                type="date" 
+                placeholder="Event Date"
+                required 
+                ngModel 
+                #date="ngModel">
+                <mat-error *ngIf="date.invalid">
+                  Event Date is required. Ensure that entered date is in the future.
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input 
+                [disabled]="submitted"
+                matInput 
+                name="pax"
+                type="number" 
+                placeholder="No.of Invitees"
+                required 
+                min="1"
+                ngModel 
+                #pax="ngModel">
+                <mat-error *ngIf="pax.invalid">No.of Invitees is required</mat-error>
+              </mat-form-field>
+              <div>
+                <div id="map"></div>
+                <a *ngIf="!submitted" mat-button name="location" (click)="setLocation()">Submit Location</a>
+                <mat-error *ngIf="!isLocationSet && !submitted">Location is required</mat-error>
+              </div>
+              <mat-form-field>
+                <input 
+                [disabled]="submitted"
+                matInput 
+                name="contact"
+                type="text"
+                placeholder="Contact Number" 
+                required 
+                pattern="^[0-9]*$" 
+                size="10" 
+                ngModel 
+                #contact="ngModel" />
+                <mat-error *ngIf="contact.invalid">Contact Number is required and should contain only numbers</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input 
+                [disabled]="submitted"
+                matInput 
+                name="type"
+                type="text"
+                placeholder="Event Type eg: Birthday, Wedding Reception etc." 
+                required
+                ngModel 
+                #type="ngModel" />
+                <mat-error *ngIf="type.invalid">Event Type is required</mat-error>
+              </mat-form-field>  
+              <mat-form-field>
+                <mat-select 
+                [disabled]="submitted"
+                placeholder="Food to Serve"
+                name="foodToServe" 
+                ngModel 
+                #foodToServe="ngModel">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button 
+                mat-flat-button 
+                type="submit" 
+                color="warn"
+                [disabled]="!isDisabled">
+                SUBMIT
+              </button>
+              <button 
+                mat-flat-button 
+                (click)="getCost()" 
+                color="warn"
+                [disabled]="isDisabled">
+                GET COST
+              </button>
+            </form>
+            <ngx-smart-modal #costModal identifier="costModal">
+              <h2 style="text-align: center;">Booking Summary</h2>
+              <table>
+                <tr>
+                  <td>Event Name</td>
+                  <td style="text-align: right;">{{ eventName }}</td>
+                </tr>
+                <tr>
+                  <td>Event Date</td>
+                  <td style="text-align: right;">{{ eventDate }}</td>
+                </tr>
+                <tr>
+                  <td>Invitees</td>
+                  <td style="text-align: right;">{{ peopleCount }}</td>
+                </tr>
+                <tr>
+                  <td>Food To Serve</td>
+                  <td style="text-align: right;">{{ foodPicked }}</td>
+                </tr>
+                <tr>
+                  <td><h5>Total Cost</h5></td>
+                  <td style="text-align: right;"><h5>{{ totalCost }}</h5></td>
+                </tr>
+              </table>
+            
+              <button (click)="onConfirm()">Confirm and Pay</button>
+            </ngx-smart-modal>
+        </mat-card>
+      </div> 
+    </div>
+  </div>

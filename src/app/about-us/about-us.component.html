@@ -1,0 +1,91 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+</head>
+
+<section class="inner-banner">
+    <img src="../../assets/images/inner-banner.jpg" class="img-fluid" alt="">
+    <div class="section-title-inner text-center py-3">
+      <h1 class="bold white text-upper">about us</h1>
+    </div>
+  </section>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="left-col-logo py-5">
+          <img src="../../assets/images/footer-logo.png" alt="" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="aboutus">
+          <h4 class="bold red pb-3">Company Profile</h4>
+          <p *ngFor="let aboutUs of aboutUs">
+            {{ aboutUs.companyProfile }}
+          </p>
+          
+          <h4 class="bold red pb-3">What We Do</h4>
+          <p *ngFor="let aboutUs of aboutUs">
+            {{ aboutUs.whatWeDo }}
+          </p>
+        </div>
+      </div>  
+    </div>
+  </div>
+
+  <!-- <div class="container py-5">
+    <div class="section-title text-center py-3">
+      <h2 class="text-upper red bold">The Team</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 95%; margin: auto;">
+          <img class="card-img-top" style="width: 250px; height: 350px; margin: auto;" src="http://4.bp.blogspot.com/-ZrjGDh5WjaU/Tf3zOBxo-DI/AAAAAAAABrs/B-a9G-YW7pg/s1600/1-greg-gorman-halle-berry.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title text-center">Jennifer Bassett</h4>
+            <h5 class="card-title text-center">Event Conductor</h5>
+            <p class="card-text text-center">
+              For over 20 years, Jennifer has run an exceptionally successful event management 
+              company working primarily with premium brands and companies looking to create 
+              unique and memorable events.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 95%; margin: auto;">
+          <img class="card-img-top" style="width: 250px; height: 350px; margin: auto;" src="https://data.whicdn.com/images/97896990/large.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title text-center">Carolyn Potter</h4>
+            <h5 class="card-title text-center">Event Director</h5>
+            <p class="card-text text-center">
+              Integral to the success of Shanz Events for over seven years, Carolyn excels in 
+              brainstorming ways to incorporate an individual brand into surprising, yet 
+              relevant event effects. Carolyn recognizes that there is no secret formula to producing 
+              a perfect event.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 95%; margin: auto;">
+          <img class="card-img-top" style="width: 250px; height: 350px; margin: auto;" src="https://cdna.artstation.com/p/assets/images/images/001/112/872/large/nehaal-gonsalves-scarlet-johansson-new-sign.jpg" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title text-center">Heather Moher</h4>
+            <h5 class="card-title text-center">Social Media Manager</h5>
+            <p class="card-text text-center">
+              Heather’s primary focus is communicating and interacting in the digital sphere. 
+              She have a wide range of experience that allows her to understand industry 
+              specific trends and best practices in the social landscape.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+      

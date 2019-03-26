@@ -1,0 +1,33 @@
+.float{
+    position: fixed;
+    top: 90%;
+    -webkit-transform: translateY(-90%);
+    -ms-transform: translateY(-90%);
+    transform: translateY(-90%);
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    font-size: 36px;
+    z-index: 999;
+}
+
+.my-float{
+    font-size: 60px; 
+    z-index: 999;
+    cursor: pointer;
+}
+
+.modalButton {
+    margin-top: 2rem; 
+    padding: 10px;
+    width: 100%;
+    border: 2px solid black;
+}
+
+p {
+    font-size: 16px;
+}

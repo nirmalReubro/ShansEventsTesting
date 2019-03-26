@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Forgot Password</h1>
+<form (submit)="submitForgot(forgotForm)" #forgotForm="ngForm">
+<div mat-dialog-content>
+          <p>Please enter the email below </p>
+    <mat-form-field>
+      <input
+      matInput
+      type="email"
+      name="email"
+      #emailInput = "ngModel"
+      ngModel
+      email
+      placeholder="Email"
+      required
+      />
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button type="submit">Ok</button>
+  </div>
+</form>

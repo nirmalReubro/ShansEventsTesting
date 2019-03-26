@@ -1,0 +1,64 @@
+<div class="container py-5">
+  <div class="col-md-12" style="margin: auto;">
+    <h2>PING US</h2>
+    <form (submit)="onSend(contactForm)" #contactForm="ngForm">
+      <mat-form-field>
+        <input
+        matInput
+        type="text"
+        name="name"
+        ngModel
+        placeholder="Name"
+        required
+        #nameInput=ngModel>
+        <mat-error *ngIf="nameInput.invalid">Please enter your Name</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+        matInput
+        type="email"
+        name="email"
+        ngModel
+        placeholder="Email"
+        required
+        email
+        #emailInput=ngModel>
+        <mat-error *ngIf="emailInput.invalid">Please enter your Email Id</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+        matInput
+        type="text"
+        name="subject"
+        ngModel
+        placeholder="Subject"
+        required
+        #subjectInput=ngModel>
+        <mat-error *ngIf="subjectInput.invalid">Please enter Message Subject</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea
+        matInput
+        rows="4"
+        name="content"
+        ngModel
+        placeholder="Message"
+        required
+        #contentInput=ngModel></textarea>
+        <mat-error *ngIf="contentInput.invalid">Please enter your Message</mat-error>
+      </mat-form-field>
+      <div class="container-fluid">
+        <recaptcha
+        [(ngModel)]="myRecaptcha"
+        name="reCaptcha"
+        (scriptLoad)="onScriptLoad()"
+        (scriptError)= "onScriptError()"></recaptcha>
+      </div>
+      <button
+      mat-flat-button
+      type="submit"
+      [disabled]="!myRecaptcha"
+      color="warn">SEND</button>
+    </form>
+  </div>
+</div>

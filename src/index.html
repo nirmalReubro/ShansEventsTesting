@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shanz Events</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link href="../node_modules/ngx-smart-modal/ngx-smart-modal" rel="stylesheet"> -->
+  <script>
+    if (global === undefined) {
+      var global = window;
+    }
+  </script>
+  <script src="https://js.braintreegateway.com/web/dropin/1.14.1/js/dropin.min.js"></script>
+  <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
+  <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
+  <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
+</head>
+<body>
+  <app-root>
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+    <h6 style="text-align: center; margin: auto; color: #F00">LOADING</h6>
+  </app-root>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD44bsKZw4RKTCjffVmp4eg8EX1iKbaW34&libraries=places&sensor=false&language=en"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD44bsKZw4RKTCjffVmp4eg8EX1iKbaW34"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
+</html>
